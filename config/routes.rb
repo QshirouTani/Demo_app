@@ -1,9 +1,19 @@
 Rails.application.routes.draw do
+
+
   resources :microposts
   resources :users
+  #resources :products
 
   #root 'application#hello'
   root 'users#index'
+
+  get 'products' => 'products#products_list'
+
+  #get 'products/list' #下記機能とバッティングのためコメントアウト
+
+  get 'products/list/:id' => 'products#list' #showと同じアクションを持たせた
+
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
